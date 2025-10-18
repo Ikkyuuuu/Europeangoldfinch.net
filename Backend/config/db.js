@@ -1,109 +1,66 @@
-// config/db.js
-require('dotenv').config();
-const fs = require('fs');
 const path = require('path');
+const fs = require('fs');
+require('dotenv').config();
 const { Sequelize } = require('sequelize');
 
-function resolveMaybe(p) {
-  if (!p) return null;
-  const abs = path.isAbsolute(p) ? p : path.resolve(process.cwd(), p);
-  return fs.existsSync(abs) ? abs : null;
+const USE_SQLITE = process.env.USE_SQLITE === '1';
+
+// ---------- SQLite (optional for local dev) ----------
+if (USE_SQLITE) {
+  const filePath = process.env.SQLITE_PATH || path.join(__dirname, '..', 'dev.sqlite3');
+  console.log('[db] Using SQLite at', filePath);
+  module.exports = new Sequelize({ dialect: 'sqlite', storage: filePath, logging: false });
+  return;
 }
 
+// ---------- Postgres (Aiven/default) ----------
 const {
-  USE_SQLITE,
+  PGHOST, PGPORT, PGDATABASE, PGUSER, PGPASSWORD,
+  PGSSLMODE = 'require',
+  PGSSLROOTCERT
+} = process.env;
 
-  SQLITE_PATH = './dev.sqlite3',
+const sslmode = (PGSSLMODE || 'require').toLowerCase();
 
-  DB_URL,
-  PGHOST,
-  PGPORT,
+let dialectOptions;
+
+// If sslmode=require, try strict CA first; if missing, fall back to lax (dev-only) so we can still sync.
+if (sslmode === 'require') {
+  const caPath = PGSSLROOTCERT ? path.resolve(process.cwd(), PGSSLROOTCERT) : null;
+  if (caPath && fs.existsSync(caPath)) {
+    console.log('[db] Using Postgres with SSL (Aiven CA)');
+    dialectOptions = {
+      ssl: {
+        require: true,
+        rejectUnauthorized: true,
+        ca: fs.readFileSync(caPath).toString(),
+      },
+    };
+  } else {
+    console.warn('[db] PGSSLMODE=require but PGSSLROOTCERT not found. Falling back to SSL with rejectUnauthorized:false (DEV ONLY).');
+    dialectOptions = { ssl: { require: true, rejectUnauthorized: false } };
+  }
+} else if (sslmode === 'disable') {
+  console.warn('[db] Using Postgres WITHOUT SSL (not recommended for Aiven).');
+  dialectOptions = undefined;
+} else {
+  console.log(`[db] Using Postgres with sslmode=${sslmode} (no explicit SSL options)`);
+  dialectOptions = undefined;
+}
+
+const sequelize = new Sequelize(
   PGDATABASE,
   PGUSER,
   PGPASSWORD,
-
-  PGSSLMODE,      
-  PGSSLROOTCERT,   
-
-  POOL_MIN = '0',
-  POOL_MAX = '10',
-  POOL_IDLE_MS = '10000',
-  POOL_ACQUIRE_MS = '10000',
-} = process.env;
-
-const useSQLite =
-  String(USE_SQLITE || '').toLowerCase() === 'true' ||
-  (!DB_URL && !PGHOST); 
-
-let sequelize;
-
-if (useSQLite) {
-  sequelize = new Sequelize({
-    dialect: 'sqlite',
-    storage: SQLITE_PATH,
+  {
+    host: PGHOST,
+    port: Number(PGPORT || 5432),
+    dialect: 'postgres',
     logging: false,
-    pool: {
-      min: Number(POOL_MIN),
-      max: Number(POOL_MAX),
-      idle: Number(POOL_IDLE_MS),
-      acquire: Number(POOL_ACQUIRE_MS),
-    },
-  });
-  console.log(`[db] Using SQLite at ${SQLITE_PATH}`);
-} else {
-  const wantSSL = (PGSSLMODE || '').toLowerCase() === 'require';
-  const caPath = resolveMaybe(PGSSLROOTCERT);
-
-  let dialectOptions = {};
-  if (wantSSL) {
-    if (caPath) {
-      dialectOptions.ssl = {
-        require: true,
-        rejectUnauthorized: true,
-        ca: fs.readFileSync(caPath, 'utf8'),
-      };
-    } else {
-      console.warn('[db] PGSSLMODE=require but no PGSSLROOTCERT provided. Using rejectUnauthorized:false (dev only).');
-      dialectOptions.ssl = { require: true, rejectUnauthorized: false };
-    }
+    dialectOptions,
+    // Uncomment if you use a non-default schema:
+    // schema: process.env.PGSCHEMA || 'public',
   }
-
-  sequelize = DB_URL
-    ? new Sequelize(DB_URL, {
-      dialect: 'postgres',
-      dialectOptions,
-      logging: false,
-      pool: {
-        min: Number(POOL_MIN),
-        max: Number(POOL_MAX),
-        idle: Number(POOL_IDLE_MS),
-        acquire: Number(POOL_ACQUIRE_MS),
-      },
-    })
-    : new Sequelize(PGDATABASE, PGUSER, PGPASSWORD, {
-      host: PGHOST,
-      port: PGPORT ? Number(PGPORT) : 5432,
-      dialect: 'postgres',
-      dialectOptions,
-      logging: false,
-      pool: {
-        min: Number(POOL_MIN),
-        max: Number(POOL_MAX),
-        idle: Number(POOL_IDLE_MS),
-        acquire: Number(POOL_ACQUIRE_MS),
-      },
-    });
-
-  console.log('[db] Using Postgres');
-}
-
-(async () => {
-  try {
-    await sequelize.authenticate();
-    console.log('[db] Connection OK');
-  } catch (err) {
-    console.error('[db] Connection failed:', err.message);
-  }
-})();
+);
 
 module.exports = sequelize;
