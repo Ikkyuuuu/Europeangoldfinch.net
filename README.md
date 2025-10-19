@@ -9,10 +9,18 @@
 Have you ever watch **Prison Break**? <br> In Prison Break, the crew uses Europeangoldfinch.net to stay in touch after breaking out of a Fox River.
 This repo recreates it as a lean web app so you can try the UI and interactions yourself. Check out the site here you can register and use it just like in the show.<br>
 
-## Preview
+## Preview (Real One vs Fake Ass Clone)
 <img src="https://github.com/user-attachments/assets/ccb2bcbb-61fb-43af-a74d-e3822bd95c1d" width="50%" alt="Europeangoldfinch"> 
 <img src="https://github.com/user-attachments/assets/3269656c-04df-4ea0-bbd1-f6b28d5d26a8" width="48%" alt="Europeangoldfinch"> 
 <br><br>
+
+
+
+
+## Tech Stack (PERN Stack)
+<img src="https://github.com/user-attachments/assets/04a9235a-6080-40f5-9618-3b2437875361" width="100%" alt="PERN"> 
+
+
 
 ## Source 
 <a href="https://prisonbreak.fandom.com/wiki/Europeangoldfinch.net">Prison Break Wiki Europeangoldfinch.net</a> <br><br>
