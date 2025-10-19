@@ -1,0 +1,127 @@
+/* ===== Full-width bar (stretches 100%) ===== */
+.egf-bar {
+    background: #dedfbe;
+    /* beige strip spans full width */
+}
+
+/* ===== Centered inner shell (tabs + banner share same left edge) ===== */
+.egf-shell {
+    width: 1000px;
+    /* or: 80%; */
+    max-width: 100%;
+    margin: 0 auto;
+    /* center it */
+}
+
+/* ===== Nav bar (top area above the banner) ===== */
+.egf-nav {
+    padding: 0px 0 0 0;
+}
+
+/* Row: tabs on the left, username on the right */
+.egf-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* right-align username */
+    gap: 12px;
+    min-height: 56px;
+}
+
+/* Tab row */
+.egf-tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+/* Tab look: red capsule with white text */
+.egf-tab {
+    display: inline-flex;
+    align-items: center;
+    height: 28px;
+    padding: 0 12px;
+    font-weight: 700;
+    font-size: 13px;
+    color: #fff;
+    background: #c52a2a;
+    border-bottom: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.egf-tab:hover {
+    background: #d23333;
+}
+
+.egf-tab.is-active {
+    background: #b82626;
+}
+
+
+/* Username on the top-right (above the banner) */
+.egf-user {
+    font-weight: 700;
+    opacity: 0.9;
+    white-space: nowrap;
+    /* Optional pill:
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.08);
+  */
+}
+
+/* ===== Banner under the tabs (aligned with shell) ===== */
+.egf-banner {
+    border: 2px solid #ffffff;
+}
+
+.egf-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-top: none;
+}
+
+/* Make the Logout <button> look EXACTLY like the <a> tabs */
+.egf-tabs button.egf-tab,
+button.egf-tab {
+    /* kill UA button styles */
+    border: 0 !important;
+    box-shadow: none !important;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #c52a2a !important;
+    /* same as .egf-tab */
+    color: #fff !important;
+    /* match HOME text color */
+    font: inherit;
+    font-size: 13px;
+    /* same font family/size */
+    font-weight: 700;
+    /* ensure bold like HOME */
+    height: 28px;
+    padding: 0 12px;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0;
+    /* same square corners as links */
+    cursor: pointer;
+}
+
+/* hover/active states identical to links */
+button.egf-tab:hover {
+    background: #d23333 !important;
+}
+
+button.egf-tab.is-active {
+    background: #b82626 !important;
+}
+
+/* Optional accessible focus ring (instead of UA shadow) */
+button.egf-tab:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 1px;
+}

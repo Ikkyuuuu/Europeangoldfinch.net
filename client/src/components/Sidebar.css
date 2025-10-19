@@ -1,0 +1,66 @@
+/* White platform that sits behind BOTH columns */
+.egf-platform {
+    background: #ffffff;
+    border: 2px solid #ffffff;
+    /* inner gutter for the grid */
+    /* space from banner & bottom */
+}
+
+/* 2-column page layout inside the platform */
+.egf-layout {
+    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 16px;
+    margin: 0;
+    /* margin not needed inside platform */
+}
+
+/* Sidebar column */
+.egf-sidebar {
+    position: sticky;
+    /* stays visible while scrolling */
+    top: 16px;
+    /* adjust if your navbar height changes */
+    align-self: start;
+    /* avoid stretch in grid */
+}
+
+/* Sidebar visual card (keeps your gray look) */
+.egf-sidecard {
+    background: #d7d7d7;
+    border: 1px solid #c8c8c8;
+}
+
+.egf-sideblock {
+    padding: 12px 14px;
+    border-top: 1px solid #cfcfcf;
+}
+
+.egf-sideblock:first-child {
+    border-top: 0;
+}
+
+.egf-sidehead {
+    color: #b82626;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.egf-main {
+    min-width: 0;
+}
+
+/* prevent overflow */
+
+/* Small screens: stack; platform still wraps both */
+@media (max-width: 800px) {
+    .egf-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .egf-sidebar {
+        position: static;
+    }
+}
