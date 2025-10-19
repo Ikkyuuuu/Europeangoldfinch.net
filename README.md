@@ -1,19 +1,23 @@
 # Europeangoldfinch.net 
-<img src="https://github.com/user-attachments/assets/e546fb7d-8a74-48e1-882c-7f437f0f48a4" width="100%" alt="Prison Break"> <br>
 
+<img src="https://github.com/user-attachments/assets/e546fb7d-8a74-48e1-882c-7f437f0f48a4" width="100%" alt="Prison Break"> <br>
 > **⚠️ Spoiler Alert&nbsp;:&nbsp;** Contains *Prison Break* spoilers.
 
-
-
-
 Have you ever watch **Prison Break**? <br> In Prison Break, the crew uses Europeangoldfinch.net to stay in touch after breaking out of a Fox River.
-This repo recreates it as a lean web app so you can try the UI and interactions yourself. Check out the site here you can register and use it just like in the show.<br>
-
-## Preview (Real One vs Fake Ass Clone)
-<img src="https://github.com/user-attachments/assets/ccb2bcbb-61fb-43af-a74d-e3822bd95c1d" width="50%" alt="Europeangoldfinch"> 
-<img src="https://github.com/user-attachments/assets/3269656c-04df-4ea0-bbd1-f6b28d5d26a8" width="48%" alt="Europeangoldfinch"> 
+This repo recreates it as a lean web app so you can try the UI and interactions yourself. Check out the site here you can register and use it just like in the show.
 <br><br>
 
+
+
+## Preview (Real One vs Fake Ass Clone)
+### Real One
+<img src="https://github.com/user-attachments/assets/ccb2bcbb-61fb-43af-a74d-e3822bd95c1d" width="50%" alt="Europeangoldfinch"> 
+<img src="https://github.com/user-attachments/assets/3269656c-04df-4ea0-bbd1-f6b28d5d26a8" width="48%" alt="Europeangoldfinch"> 
+
+### Fake Ass Clone
+
+
+<br><br>
 
 
 
