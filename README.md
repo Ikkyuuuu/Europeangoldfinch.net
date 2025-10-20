@@ -12,6 +12,20 @@ This repo recreates it as a lean web app so you can try the UI and interactions 
 
 
 ## Preview 
+### Register
+<img src="https://github.com/user-attachments/assets/3adf9167-ca37-4076-80ca-064bb9667998" width="100%" alt="Prison Break"> <br>
+
+### Login
+<img src="https://github.com/user-attachments/assets/605e6816-2bca-4d44-bb2a-74b527e59f73" width="100%" alt="Prison Break"> <br>
+
+### Home (Without Login)
+<img src="https://github.com/user-attachments/assets/e03d2455-b32f-412a-b9dc-cb8c29e7b381" width="100%" alt="Prison Break"> <br>
+
+### Home (Login)
+<img src="https://github.com/user-attachments/assets/5ac1c773-ea2f-4356-a458-68d93d2f0783" width="100%" alt="Prison Break"> <br>
+
+
+### Post Detail
 
 
 
@@ -21,9 +35,43 @@ This repo recreates it as a lean web app so you can try the UI and interactions 
 
 ## Tech Stack (PERN Stack)
 <img src="https://github.com/user-attachments/assets/04a9235a-6080-40f5-9618-3b2437875361" width="100%" alt="PERN"> 
+<br><br>
+
+
+
+## Local Environment
+### Client
+```bash
+VITE_API_URL=http://localhost:3000
+```
+### Server
+```bash
+PORT=3000
+PGHOST=*********              
+PGPORT=5432
+PGDATABASE=*******             
+PGUSER=*********              
+PGPASSWORD=*********          
+PGSSLMODE=disable
+
+PORT=3000
+PGHOST=********************************************   
+PGPORT=26941
+PGDATABASE=*********                                 
+PGUSER=********                                        
+PGPASSWORD=************************                    
+PGSSLMODE=require
+PGSSLROOTCERT=./ca.pem
+
+JWT_SECRET=************************                     
+JWT_EXPIRES=7d
+```
+<br>
 
 
 
 ## Source 
 <a href="https://prisonbreak.fandom.com/wiki/Europeangoldfinch.net">Prison Break Wiki Europeangoldfinch.net</a> <br><br>
 <a href="https://europeangoldfinch.blog.ir/">Europeangoldfinch.net</a> <br><br>
+<a href="https://pantip.com/">Inspired from Pantip</a> <br><br>
+
