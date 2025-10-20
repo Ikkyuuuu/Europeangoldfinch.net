@@ -6,11 +6,15 @@ import NewPost from "./NewPost";
 import "./postslist.css";
 
 function fmtDate(value) {
+    if (!value) return "";
     const d = new Date(value);
-    if (isNaN(d)) return "";
+    if (isNaN(d.getTime())) return "";
+
     const mm = String(d.getMonth() + 1).padStart(2, "0");
     const dd = String(d.getDate()).padStart(2, "0");
-    return `${mm}/${dd}`;
+    const yy = String(d.getFullYear() % 100).padStart(2, "0"); // last 2 digits
+
+    return `${mm}/${dd}/${yy}`;
 }
 
 export default function PostsList() {

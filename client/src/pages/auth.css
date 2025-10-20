@@ -1,0 +1,113 @@
+:root {
+    --auth-maxw: 100%;
+    --auth-red: #c91c1c;
+    /* header bar red */
+    --auth-border: #b8c2cc;
+    /* outer border gray */
+    --auth-panel: #eef3f7;
+    /* light panel bg under header */
+    --auth-text: #1f2937;
+}
+
+.auth-wrap {
+    margin: 9px auto;
+    max-width: var(--auth-maxw);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: var(--auth-text);
+}
+
+.auth-header {
+    background: var(--auth-red);
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    padding: 11px 12px;
+    font-size: 14px;
+}
+
+.auth-card {
+    background: var(--auth-panel);
+    border-top: none;
+    /* connects to header bar */
+    padding: 18px;
+}
+
+/* NO INNER SQUARE: keep the form naked inside the outer panel */
+.auth-form {
+    display: grid;
+    gap: 12px;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.auth-title {
+    margin: 0 0 2px 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.auth-hint {
+    margin: 0 0 6px 0;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.auth-input {
+    width: 96%;
+    height: 15px;
+    padding: 6px 8px;
+    border: 1px solid var(--auth-border);
+    background: #fff;
+    outline: none;
+}
+
+.auth-input:focus {
+    border-color: #6aa9ff;
+    box-shadow: 0 0 0 3px rgba(106, 169, 255, .25);
+}
+
+.auth-error {
+    color: #a80808;
+    background: #ffe8e8;
+    border: 1px solid #f3b5b5;
+    padding: 8px 10px;
+    font-size: 13px;
+}
+
+.auth-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 2px;
+}
+
+.auth-btn {
+    appearance: none;
+    border: 1px solid var(--auth-border);
+    background: #fff;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.auth-btn.primary {
+    border-color: #a91d1d;
+    background: var(--auth-red);
+    color: #fff;
+}
+
+.auth-btn.primary:hover {
+    filter: brightness(.95);
+}
+
+.auth-btn:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+/* Optional: make the single submit button full-width
+.auth-actions { justify-content: stretch; }
+.auth-actions .auth-btn.primary { width: 100%; }
+*/

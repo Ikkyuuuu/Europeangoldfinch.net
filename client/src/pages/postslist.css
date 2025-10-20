@@ -42,6 +42,7 @@
     flex-direction: column;
     /* stack vertically */
     align-items: flex-start;
+    font-size: 14px;
     padding: 10px 12px;
     border-right: 1px solid #ffffff;
 }
@@ -58,7 +59,7 @@
     /* forces new line */
     margin-top: 4px;
     color: #000000;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1;
     white-space: nowrap;
     font-weight: 750;
@@ -74,7 +75,7 @@
     color: #111;
     text-decoration: none;
     font-weight: 650;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .list-link:hover {

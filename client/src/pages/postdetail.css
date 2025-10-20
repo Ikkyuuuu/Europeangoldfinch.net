@@ -1,0 +1,109 @@
+:root {
+    /* fallbacks; tweak if you have a theme */
+    --pd-red: #c91c1c;
+    --pd-blue: #eaf3f9;
+    --pd-border: #b8c2cc;
+    --pd-text: #1f2937;
+}
+
+/* Container */
+.thread-wrap {
+    margin: 10px auto;
+    max-width: 980px;
+    color: var(--pd-text);
+    font-family: inherit;
+}
+
+/* Card (outer shell) */
+.thread-card {
+    overflow: hidden;
+    background: var(--pd-blue);
+}
+
+/* Top breadcrumb line */
+.thread-head {
+    background: var(--pd-blue);
+    padding: 10px 12px;
+    font-weight: 700;
+    border: 1px solid #ffffff;
+}
+
+/* Make the "return to list" link black, always underlined */
+.thread-head a,
+.thread-head a:visited {
+    color: #000 !important;
+    text-decoration: none;
+    font-weight: 700;
+    /* no underline by default */
+}
+
+.thread-head a:hover,
+.thread-head a:focus {
+    color: #000 !important;
+    text-decoration: underline;
+    /* underline on hover/focus */
+}
+
+/* Red title bar */
+.thread-title {
+    background: var(--pd-red);
+    color: #fff;
+    padding: 10px 14px;
+    font-weight: 700;
+    /* match body width by adding side borders, omit bottom */
+    border: 1px solid #ffffff;
+}
+
+/* Message row: author | content */
+.thread-row {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    background: var(--pd-blue);
+    border: 1px solid #ffffff;
+    /* connects to red bar */
+}
+
+/* Left column (author/date) */
+.thread-author {
+    padding: 12px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, .35);
+    border: 1px solid #ffffff;
+}
+
+.thread-author .name {
+    color: var(--pd-red);
+    font-weight: 700;
+}
+
+.thread-author .date {
+    font-size: 13px;
+    opacity: .8;
+    display: block;
+    margin-top: 4px;
+}
+
+/* Right column (post body) */
+.thread-body {
+    padding: 12px 16px;
+    font-size: 14px;
+}
+
+.thread-body p {
+    margin: 0 0 10px 0;
+}
+
+.thread-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive: stack columns */
+@media (max-width: 640px) {
+    .thread-row {
+        grid-template-columns: 1fr;
+    }
+
+    .thread-author {
+        border: 1px solid #ffffff;
+    }
+}

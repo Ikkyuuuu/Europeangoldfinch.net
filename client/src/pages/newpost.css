@@ -1,3 +1,14 @@
+html,
+body {
+    scrollbar-gutter: stable;
+    /* or: stable both-edges */
+}
+
+/* Works everywhere: always show a vertical scrollbar */
+html {
+    overflow-y: scroll;
+}
+
 /* ===== Container ===== */
 .post-box {
     overflow: hidden;
@@ -99,9 +110,9 @@
 
 /* Submit button (light gray like the reference) */
 .post-submit {
-    background: #f3f4f6;
+    background: #c52a2a;
     border: 1px solid #c8c8c8;
-    color: #111;
+    color: #ffffff;
     font-weight: 700;
     padding: 8px 14px;
     cursor: pointer;
@@ -110,7 +121,8 @@
 }
 
 .post-submit:hover {
-    background: #e7e8eb;
+    color: #ffffff;
+    background: #c52a2a;
 }
 
 /* If you want the red variant instead:
