@@ -1,6 +1,6 @@
 /* ==== Globals (safe for your layout) ==== */
 :root {
-  --egf-page-bg: #dedfbe;
+  --egf-page-bg: #E2E4CC;
   /* beige page background */
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -36,10 +36,6 @@ a {
   font-weight: 500;
   color: #646cff;
   text-decoration: none;
-}
-
-a:hover {
-  color: #535bf2;
 }
 
 /* Remove the Vite template’s flex-centering on body.

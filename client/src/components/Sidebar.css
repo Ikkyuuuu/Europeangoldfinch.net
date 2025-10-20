@@ -1,66 +1,149 @@
-/* White platform that sits behind BOTH columns */
+/* ===== White platform wrapper (unchanged) ===== */
 .egf-platform {
     background: #ffffff;
     border: 2px solid #ffffff;
-    /* inner gutter for the grid */
-    /* space from banner & bottom */
 }
 
-/* 2-column page layout inside the platform */
+/* ===== 2-column layout ===== */
 .egf-layout {
     display: grid;
     grid-template-columns: 190px minmax(0, 1fr);
     gap: 16px;
     margin: 0;
-    /* margin not needed inside platform */
+    align-items: stretch;
+    /* ensure both columns share row height */
 }
 
-/* Sidebar column */
+/* ===== Sidebar column fills full height and paints gray ===== */
 .egf-sidebar {
-    position: sticky;
-    /* stays visible while scrolling */
-    top: 16px;
-    /* adjust if your navbar height changes */
-    align-self: start;
-    /* avoid stretch in grid */
+    position: relative;
+    /* anchor for ::before background layer */
+    align-self: stretch;
+    /* make column as tall as the main column */
 }
 
-/* Sidebar visual card (keeps your gray look) */
-.egf-sidecard {
+/* gray background stays full-height */
+.egf-sidebar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
     background: #d7d7d7;
     border: 1px solid #c8c8c8;
+    z-index: 0;
+    /* behind */
+    pointer-events: none;
 }
 
+/* NOT sticky; sits above the gray */
+.egf-sidecard {
+    position: relative;
+    /* <-- was static */
+    top: auto;
+    /* ensure no offset */
+    background: transparent;
+    border: none;
+    z-index: 1;
+    /* now effective */
+}
+
+/* Blocks inside the card */
 .egf-sideblock {
     padding: 12px 14px;
-    border-top: 1px solid #cfcfcf;
+}
+
+/* Optional subtle inner divider at the top of ABOUT (like original) */
+.egf-sideblock.egf-about {
+    border-top: 1px solid #c8c8c8;
 }
 
 .egf-sideblock:first-child {
     border-top: 0;
 }
 
+/* ===== Heading style ===== */
 .egf-sidehead {
     color: #b82626;
-    font-weight: 800;
-    letter-spacing: 0.3px;
-    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
     text-transform: uppercase;
+    font-style: italic;
+    margin: 0 0 10px;
 }
 
+/* ===== Main column ===== */
 .egf-main {
     min-width: 0;
 }
 
-/* prevent overflow */
+/* ===== Sidebar "original" typography tweaks ===== */
+.egf-sidecard {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #222;
+}
 
-/* Small screens: stack; platform still wraps both */
+.egf-sidecard p {
+    margin: 0 0 12px;
+}
+
+.egf-sidecard b,
+.egf-sidecard strong {
+    font-weight: 700;
+}
+
+.egf-sidecard i,
+.egf-sidecard em {
+    font-style: italic;
+    color: inherit;
+}
+
+/* Per-sentence sizing/line-height (your custom classes) */
+.egf-faq-q,
+.egf-faq-s1,
+.egf-about-s1,
+.egf-faq-s2-len,
+.egf-faq-s2-wt,
+.egf-faq-s3,
+.egf-faq-more {
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+.egf-about-sci {
+    font-style: italic;
+}
+
+/* ===== Mobile: stack columns ===== */
 @media (max-width: 800px) {
     .egf-layout {
         grid-template-columns: 1fr;
     }
 
+    /* Drop the full-height layer; make the card non-sticky on small screens */
     .egf-sidebar {
         position: static;
     }
+
+    .egf-sidebar::before {
+        display: none;
+    }
+
+    .egf-sidecard {
+        position: static;
+        background: #d7d7d7;
+        border: 1px solid #c8c8c8;
+    }
+}
+
+.egf-main,
+.list-box,
+.list-table,
+.list-row,
+.list-title,
+.list-link {
+    position: relative;
+    z-index: 1;
+    /* paint above sidebar bg */
 }

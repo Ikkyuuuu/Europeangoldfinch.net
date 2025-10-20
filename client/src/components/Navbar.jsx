@@ -7,8 +7,8 @@ export default function Navbar() {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        logout();        // clears token/user
-        navigate("/");   // go to Home
+        logout();
+        navigate("/");
     };
 
     return (
@@ -16,7 +16,6 @@ export default function Navbar() {
             <div className="egf-shell">
                 <nav className="egf-nav">
                     <div className="egf-row">
-                        {/* LEFT: tabs */}
                         <div className="egf-tabs">
                             <NavLink
                                 to="/"
@@ -28,8 +27,9 @@ export default function Navbar() {
 
                             {user ? (
                                 <>
+                                    {/* Link to the home page anchor */}
                                     <NavLink
-                                        to="/posts/new"
+                                        to="/#new-post"
                                         className={({ isActive }) => "egf-tab" + (isActive ? " is-active" : "")}
                                     >
                                         POSTING MESSAGE
@@ -56,12 +56,10 @@ export default function Navbar() {
                             )}
                         </div>
 
-                        {/* RIGHT: username (top-right, above banner) */}
                         {user?.username && <div className="egf-user">@{user.username}</div>}
                     </div>
                 </nav>
 
-                {/* Banner below the nav */}
                 <div className="egf-banner">
                     <img src="/banner.png" alt="Europeangoldfinch banner" />
                 </div>

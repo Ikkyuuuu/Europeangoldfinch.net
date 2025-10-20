@@ -1,0 +1,140 @@
+/* ===== Container ===== */
+.post-box {
+    overflow: hidden;
+    /* rounds the header corners, too */
+    background: #ffffff;
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 15px;
+}
+
+/* Red title bar */
+.post-head {
+    background: #c52a2a;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    padding: 10px 14px;
+    text-transform: uppercase;
+}
+
+/* Light-blue panel */
+.post-body {
+    background: #e5f0f6;
+    padding: 14px;
+    display: grid;
+    gap: 12px;
+    border-top: 1px solid #d7e3ef;
+}
+
+/* Rows */
+.post-row {
+    display: block;
+}
+
+/* ===== Inputs (shared) ===== */
+.post-input,
+.post-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    font: inherit;
+    color: #222;
+    background: #fff;
+    border: 1px solid #bfc7cf;
+    padding: 8px 10px;
+    outline: none;
+}
+
+.post-input::placeholder,
+.post-textarea::placeholder {
+    color: #7a8a97;
+}
+
+.post-input:hover,
+.post-textarea:hover {
+    border-color: #aeb7c0;
+}
+
+/* ===== Topic (input) only ===== */
+.post-input--topic {
+    font-size: 14px;
+    height: 38px;
+    /* field height */
+}
+
+/* Optional variant you can toggle with className */
+/* .post-input--topic.highlight { background:#fff7f7; border-color:#e7b8b8; } */
+
+/* ===== Message (textarea) only ===== */
+.post-textarea--message {
+    font-size: 14px;
+    line-height: 1.4;
+    /* line spacing inside textarea */
+    min-height: 260px;
+    resize: vertical;
+    /* allow manual resize */
+}
+
+/* .post-textarea--message.no-resize { resize: none; } */
+
+/* ===== Error text ===== */
+.post-error {
+    color: #b00020;
+    font-weight: 700;
+}
+
+/* Error state (apply .is-error from JSX if needed) */
+.post-input.is-error,
+.post-textarea.is-error {
+    border-color: #d32f2f;
+    box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.15);
+}
+
+/* ===== Actions ===== */
+.post-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Submit button (light gray like the reference) */
+.post-submit {
+    background: #f3f4f6;
+    border: 1px solid #c8c8c8;
+    color: #111;
+    font-weight: 700;
+    padding: 8px 14px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.post-submit:hover {
+    background: #e7e8eb;
+}
+
+/* If you want the red variant instead:
+.post-submit { background:#c52a2a; color:#fff; border-color:#9f2020; }
+.post-submit:hover { background:#d23333; }
+*/
+
+/* ===== When rendered under the list on Home ===== */
+.home-newpost .post-box {
+    margin-top: 10px;
+}
+
+.home-newpost .post-head {
+    background: #c52a2a;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 5px 12px;
+}
+
+.post-input.post-input--topic {
+    height: 30px;
+}
+
+.post-textarea.post-textarea--message {
+    min-height: 150px;
+}

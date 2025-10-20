@@ -1,0 +1,114 @@
+/* Container with red header */
+.list-box {
+    overflow: hidden;
+    background: #ffffff;
+}
+
+/* Red title bar */
+.list-head {
+    background: #c52a2a;
+    /* same red as your tabs */
+    color: #fff;
+    font-weight: 700;
+    padding: 10px 12px;
+    text-transform: none;
+    margin-top: 8px;
+}
+
+/* Table-ish layout */
+.list-table {
+    display: block;
+}
+
+/* Row */
+.list-row {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    align-items: start;
+    background: #E5F0F6;
+    /* light blue */
+    border-top: 1px solid #ffffff;
+    /* row separators */
+}
+
+/* Alternating background like the screenshot */
+.list-row:nth-child(even) {
+    background: #E5F0F6;
+}
+
+/* Left column: author (top) + date (below) */
+.list-author {
+    display: flex;
+    flex-direction: column;
+    /* stack vertically */
+    align-items: flex-start;
+    padding: 10px 12px;
+    border-right: 1px solid #ffffff;
+}
+
+.list-user {
+    color: #FE0000;
+    /* deep red */
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.list-date {
+    display: block;
+    /* forces new line */
+    margin-top: 4px;
+    color: #000000;
+    font-size: 12px;
+    line-height: 1;
+    white-space: nowrap;
+    font-weight: 750;
+    /* keep MM/DD on one line */
+}
+
+/* Right column: title */
+.list-title {
+    padding: 10px 12px;
+}
+
+.list-link {
+    color: #111;
+    text-decoration: none;
+    font-weight: 650;
+    font-size: 15px;
+}
+
+.list-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive: stack columns on narrow screens */
+@media (max-width: 700px) {
+    .list-row {
+        grid-template-columns: 1fr;
+    }
+
+    .list-author {
+        border-right: 0;
+        border-bottom: 1px solid #c8d3db;
+    }
+}
+
+/* spacing for the new post box on home */
+.home-newpost .post-box {
+    margin-top: 10px;
+    /* space below the list */
+}
+
+/* make the post form full width under the platform */
+.home-newpost .post-box {
+    max-width: none;
+}
+
+/* optional: align the red header style with list header */
+.home-newpost .post-head {
+    background: #c52a2a;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 5px 12px;
+}

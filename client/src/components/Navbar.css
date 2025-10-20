@@ -1,6 +1,6 @@
 /* ===== Full-width bar (stretches 100%) ===== */
 .egf-bar {
-    background: #dedfbe;
+    background: #E2E4CC;
     /* beige strip spans full width */
 }
 
@@ -125,3 +125,9 @@ button.egf-tab:focus-visible {
     outline: 2px solid #fff;
     outline-offset: 1px;
 }
+
+.egf-main {
+    padding-right: 15px;
+    /* adds a consistent right gutter */
+}
+
