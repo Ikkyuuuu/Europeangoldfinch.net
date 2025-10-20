@@ -24,6 +24,37 @@ This repo recreates it as a lean web app so you can try the UI and interactions 
 
 
 
+## Local Environment
+### Client
+```bash
+VITE_API_URL=http://localhost:3000
+```
+### Server
+```bash
+PORT=3000
+PGHOST=*********              
+PGPORT=5432
+PGDATABASE=*******             
+PGUSER=*********              
+PGPASSWORD=*********          
+PGSSLMODE=disable
+
+PORT=3000
+PGHOST=********************************************   
+PGPORT=26941
+PGDATABASE=*********                                 
+PGUSER=********                                        
+PGPASSWORD=************************                    
+PGSSLMODE=require
+PGSSLROOTCERT=./ca.pem
+
+JWT_SECRET=************************                     
+JWT_EXPIRES=7d
+```
+
+
+
+
 ## Source 
 <a href="https://prisonbreak.fandom.com/wiki/Europeangoldfinch.net">Prison Break Wiki Europeangoldfinch.net</a> <br><br>
 <a href="https://europeangoldfinch.blog.ir/">Europeangoldfinch.net</a> <br><br>
