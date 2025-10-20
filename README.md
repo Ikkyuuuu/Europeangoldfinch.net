@@ -21,6 +21,7 @@ This repo recreates it as a lean web app so you can try the UI and interactions 
 
 ## Tech Stack (PERN Stack)
 <img src="https://github.com/user-attachments/assets/04a9235a-6080-40f5-9618-3b2437875361" width="100%" alt="PERN"> 
+<br><br>
 
 
 
@@ -51,7 +52,7 @@ PGSSLROOTCERT=./ca.pem
 JWT_SECRET=************************                     
 JWT_EXPIRES=7d
 ```
-
+<br>
 
 
 
