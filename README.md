@@ -18,7 +18,10 @@ This repo recreates it as a lean web app so you can try the UI and interactions 
 ### Login
 <img src="https://github.com/user-attachments/assets/605e6816-2bca-4d44-bb2a-74b527e59f73" width="100%" alt="Prison Break"> <br>
 
-### Home
+### Home (Without Login)
+<img src="https://github.com/user-attachments/assets/e03d2455-b32f-412a-b9dc-cb8c29e7b381" width="100%" alt="Prison Break"> <br>
+
+### Home (Login)
 <img src="https://github.com/user-attachments/assets/5ac1c773-ea2f-4356-a458-68d93d2f0783" width="100%" alt="Prison Break"> <br>
 
 
