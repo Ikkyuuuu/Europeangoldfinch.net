@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { create as createReply } from "../api/reply";
 import useAuth from "../auth/useAuth";
+import "./newreply.css";
 
 export default function NewReply({ postId, onCreated }) {
     const { user, token } = useAuth();
