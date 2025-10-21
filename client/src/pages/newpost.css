@@ -98,7 +98,6 @@ html {
 .post-input.is-error,
 .post-textarea.is-error {
     border-color: #d32f2f;
-    box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.15);
 }
 
 /* ===== Actions ===== */
@@ -111,7 +110,7 @@ html {
 /* Submit button (light gray like the reference) */
 .post-submit {
     background: #c52a2a;
-    border: 1px solid #c8c8c8;
+    border: 1px solid #e5f0f6;
     color: #ffffff;
     font-weight: 700;
     padding: 8px 14px;

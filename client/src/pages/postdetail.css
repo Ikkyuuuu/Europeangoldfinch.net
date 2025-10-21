@@ -2,7 +2,7 @@
     /* fallbacks; tweak if you have a theme */
     --pd-red: #c91c1c;
     --pd-blue: #eaf3f9;
-    --pd-border: #b8c2cc;
+    --pd-border: #ffffff;
     --pd-text: #1f2937;
 }
 
@@ -106,4 +106,322 @@
     .thread-author {
         border: 1px solid #ffffff;
     }
+}
+
+/* Replies section header (light bar under the main post) */
+.thread-replies-head {
+    background: #f4f7fb;
+    padding: 8px 12px;
+    font-weight: 700;
+}
+
+/* Replies container */
+.thread-replies {
+    background: var(--pd-blue, #eaf3f9);
+}
+
+/* One reply (author | body) */
+.reply-row {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    background: var(--pd-blue);
+    border: 1px solid #ffffff;
+}
+
+/* Left column: author/date */
+.reply-author {
+    padding: 10px 12px;
+    border-right: 1px solid #ffffff;
+    background: rgba(255, 255, 255, .35);
+    font-size: 14px;
+}
+
+.reply-author .name {
+    color: var(--pd-red, #c91c1c);
+    font-weight: 700;
+}
+
+.reply-author .date {
+    font-size: 12px;
+    opacity: .8;
+    display: block;
+    margin-top: 4px;
+}
+
+/* Right column: message text */
+.reply-body {
+    padding: 10px 16px;
+    font-size: 14px;
+}
+
+.reply-body p {
+    margin: 0 0 10px 0;
+}
+
+.reply-body p:last-child {
+    margin-bottom: 0;
+}
+
+.thread-replies-empty,
+.thread-replies-loading {
+    padding: 12px 16px;
+    font-style: italic;
+}
+
+/* Error banner */
+.thread-error {
+    color: #a80808;
+    background: #ffe8e8;
+    border: 1px solid #f3b5b5;
+    margin: 12px;
+    padding: 8px 10px;
+    border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .reply-row {
+        grid-template-columns: 1fr;
+    }
+
+    .reply-author {
+        border-right: none;
+        border-bottom: 1px solid var(--pd-border, #ffffff);
+    }
+}
+
+/* ===== Reply panel (matches "New Post" look) ===== */
+.reply-panel {
+    margin-top: 12px;
+    border: 1px solid var(--pd-border, #b8c2cc);
+    background: var(--pd-blue, #eaf3f9);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.reply-header {
+    background: var(--pd-red, #c91c1c);
+    color: #fff;
+    font-weight: 700;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: .25px;
+    border-left: 1px solid var(--pd-border, #b8c2cc);
+    border-right: 1px solid var(--pd-border, #b8c2cc);
+}
+
+.reply-bodywrap {
+    padding: 12px;
+}
+
+.reply-input {
+    width: 100%;
+    border: 1px solid var(--pd-border, #b8c2cc);
+    border-radius: 3px;
+    background: #fff;
+    padding: 6px 8px;
+    outline: none;
+    height: 34px;
+}
+
+.reply-textarea {
+    width: 100%;
+    min-height: 180px;
+    border: 1px solid var(--pd-border, #b8c2cc);
+    border-radius: 3px;
+    background: #fff;
+    padding: 8px;
+    resize: vertical;
+    outline: none;
+}
+
+
+.reply-actions {
+    margin-top: 10px;
+}
+
+.reply-send {
+    appearance: none;
+    border: 1px solid #a91d1d;
+    background: var(--pd-red, #c91c1c);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.reply-send:disabled {
+    opacity: .6;
+    cursor: pointer;
+}
+
+/* remove outer box around the reply form */
+.reply-panel {
+    margin-top: 12px;
+    border: none;
+    /* ✱ no border */
+    background: transparent;
+    /* ✱ no blue panel bg */
+    border-radius: 0;
+    overflow: visible;
+}
+
+/* keep the red header, but don't add extra side borders if you want it flush */
+.reply-header {
+    background: var(--pd-red, #c91c1c);
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .25px;
+    padding: 10px 12px;
+    border: none;
+    /* ✱ remove side borders from header */
+}
+
+/* space inside without drawing a box */
+.reply-bodywrap {
+    padding: 12px 0 0 0;
+    /* top spacing only */
+    background: transparent;
+}
+
+/* shared panel styles used on home + detail */
+.section-header {
+    background: var(--pd-red, #c91c1c);
+    color: #fff;
+    font-weight: 700;
+    padding: 3px 12px;
+    border: 1px solid #ffffff;
+    /* matches home rows */
+    text-transform: uppercase;
+}
+
+.section-panel {
+    background: var(--pd-blue, #eaf3f9);
+    border: 1px solid #ffffff;
+    padding: 12px;
+}
+
+/* inputs already match your home styles via .auth-input / .auth-textarea */
+.auth-textarea {
+    min-height: 220px;
+    width: 97.5%;
+    resize: vertical;
+}
+
+/* postdetail.css */
+.thread-reply-block {
+    margin-top: 7px;
+    /* shift the whole reply box down */
+}
+
+/* No focus glow on the reply textarea/input */
+.thread-reply-block .auth-input:focus,
+.thread-reply-block .auth-textarea:focus {
+    border-color: var(--pd-border);
+    /* keep same border */
+    box-shadow: none;
+    /* remove blue glow */
+    outline: none;
+    /* remove outline */
+}
+
+/* Left-align the Send button in the reply area */
+.thread-reply-block .auth-actions {
+    justify-content: flex-start;
+    /* was flex-end globally */
+}
+
+/* Base: normal red button */
+.reply-send {
+    background: var(--pd-red, #c91c1c);
+    border: 1px solid #a91d1d;
+    color: #fff;
+    font-weight: 700;
+}
+
+/* Disabled should look identical to enabled */
+.reply-send:disabled {
+    background: var(--pd-red, #c91c1c);
+    /* same as enabled */
+    border-color: #a91d1d;
+    /* same as enabled */
+    color: #fff;
+    /* same as enabled */
+    opacity: 1;
+    /* no fade */
+    cursor: pointer;
+    /* normal arrow */
+    pointer-events: none;
+    /* still not clickable */
+}
+
+/* No hover effect while disabled */
+.reply-send:disabled:hover {
+    filter: none;
+}
+
+.thread-reply-block .auth-btn.primary:disabled {
+    background: var(--pd-red, #c91c1c);
+    border-color: #a91d1d;
+    color: #fff;
+    opacity: 1;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+/* Reply button — disabled looks like enabled, shows pointer, but still can't click */
+.reply-send:disabled {
+    background: var(--pd-red, #c91c1c);
+    border-color: #a91d1d;
+    color: #fff;
+    opacity: 1;
+    cursor: pointer;
+    /* show hand */
+    /* pointer-events: none;  <-- REMOVE THIS */
+}
+
+/* If you also style generic primary buttons */
+.thread-reply-block .auth-btn.primary:disabled {
+    background: var(--pd-red, #c91c1c);
+    border-color: #a91d1d;
+    color: #fff;
+    opacity: 1;
+    cursor: pointer;
+    /* show hand */
+    /* pointer-events: none;  <-- REMOVE THIS */
+}
+
+/* Make reply textarea text & placeholder match New Post */
+.thread-reply-block .auth-textarea {
+    font: inherit;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* placeholder color + remove italic */
+.thread-reply-block .auth-textarea::placeholder {
+    color: #7a8a97;
+    font-style: normal;
+    font-weight: 400;
+    opacity: 1;
+    /* avoid washed-out look on Firefox */
+}
+
+/* (Optional broader support) */
+.thread-reply-block .auth-textarea::-webkit-input-placeholder {
+    color: #7a8a97;
+    font-style: normal;
+}
+
+.thread-reply-block .auth-textarea::-moz-placeholder {
+    color: #7a8a97;
+    font-style: normal;
+    opacity: 1;
+}
+
+.thread-reply-block .auth-textarea:-ms-input-placeholder {
+    color: #7a8a97;
+    font-style: normal;
 }

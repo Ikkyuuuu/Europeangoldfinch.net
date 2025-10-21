@@ -8,6 +8,7 @@ export default function NewPost() {
     const [form, setForm] = useState({ topic: "", detail: "" });
     const [err, setErr] = useState("");
     const [submitting, setSubmitting] = useState(false);
+    const canSend = form.detail.trim().length > 0;
 
     const submit = async (e) => {
         e.preventDefault();
@@ -60,7 +61,11 @@ export default function NewPost() {
 
                 {/* Actions */}
                 <div className="post-actions">
-                    <button type="submit" className="post-submit" disabled={submitting}>
+                    <button
+                        type="submit"
+                        className="post-submit"
+                        disabled={submitting || !canSend}
+                    >
                         {submitting ? "Publishing..." : "Send"}
                     </button>
                 </div>

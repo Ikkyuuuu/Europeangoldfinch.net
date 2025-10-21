@@ -9,6 +9,7 @@ const { notFound, errorHandler } = require('./middleware/errorHandler');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const postsRouter = require('./routes/posts');
+const replyRouter = require('./routes/reply');
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.get('/', (_req, res) => res.json({ ok: true }));
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.use('/posts', postsRouter);
+app.use('/', replyRouter);
 
 app.use(notFound);
 app.use(errorHandler);
