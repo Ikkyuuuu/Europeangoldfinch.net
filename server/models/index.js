@@ -1,8 +1,8 @@
 // src/models/index.js
 const sequelize = require('../config/db');
-const UserFactory = require('./user');
-const PostFactory = require('./post');
-const ReplyFactory = require('./reply');
+const UserFactory = require('./User');
+const PostFactory = require('./Post');
+const ReplyFactory = require('./Reply');
 
 const User = UserFactory(sequelize);
 const Post = PostFactory(sequelize);
