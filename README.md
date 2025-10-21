@@ -46,17 +46,9 @@ VITE_API_URL=http://localhost:3000
 ```
 ### Server
 ```bash
-PORT=3000
-PGHOST=*********              
-PGPORT=5432
-PGDATABASE=*******             
-PGUSER=*********              
-PGPASSWORD=*********          
-PGSSLMODE=disable
-
-PORT=3000
+PORT=****
 PGHOST=********************************************   
-PGPORT=26941
+PGPORT=*****
 PGDATABASE=*********                                 
 PGUSER=********                                        
 PGPASSWORD=************************                    
