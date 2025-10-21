@@ -8,8 +8,8 @@
 Have you ever watch **Prison Break**? <br> In Prison Break, the crew uses Europeangoldfinch.net to stay in touch after breaking out of a Fox River.
 This repo recreates it as a lean web app so you can try the UI and interactions yourself. Check out the site here you can register and use it just like in the show.
 <br><br>
-
-
+Check out here (Might take a while to wake a server up) : https://europeangoldfinchnet.netlify.app/ 
+<br><br>
 
 ## Preview 
 ### Register
@@ -34,31 +34,13 @@ This repo recreates it as a lean web app so you can try the UI and interactions 
 
 
 ## Tech Stack (PERN Stack)
-<img src="https://github.com/user-attachments/assets/04a9235a-6080-40f5-9618-3b2437875361" width="100%" alt="PERN"> 
+<img src="https://github.com/user-attachments/assets/19cbe53e-f4f6-4147-989b-0c7257c421d9" width="100%" alt="PERN"> 
 <br><br>
 
 
 
-## Local Environment
-### Client
-```bash
-VITE_API_URL=http://localhost:3000
-```
-### Server
-```bash
-PORT=****
-PGHOST=********************************************   
-PGPORT=*****
-PGDATABASE=*********                                 
-PGUSER=********                                        
-PGPASSWORD=************************                    
-PGSSLMODE=require
-PGSSLROOTCERT=./ca.pem
-
-JWT_SECRET=************************                     
-JWT_EXPIRES=7d
-```
-<br>
+## Deployment Platform
+<img src="https://github.com/user-attachments/assets/25f93ac0-8953-4fe8-b413-8bc2f5425121" width="100%" alt="Netlify"> 
 
 
 
