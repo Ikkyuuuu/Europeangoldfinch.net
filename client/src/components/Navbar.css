@@ -131,3 +131,81 @@ button.egf-tab:focus-visible {
     /* adds a consistent right gutter */
 }
 
+/* tiny icon next to buttons; no red pill/background */
+.egf-icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 34px;
+    /* match your tab height */
+    margin-left: 8px;
+    /* space from LOGIN/LOGOUT */
+    color: #000000;
+    /* white logo on the red bar */
+    text-decoration: none;
+    opacity: 0.95;
+}
+
+.egf-icon-link:hover,
+.egf-icon-link:focus {
+    opacity: 1;
+    outline: none;
+}
+
+.egf-icon-link svg {
+    pointer-events: none;
+}
+
+/* Tab row */
+.egf-tabs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Make <a> and <button> tabs identical */
+.egf-tab,
+.egf-tabs button.egf-tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    /* unified height */
+    padding: 0 12px;
+    font-weight: 700;
+    font-size: 13px;
+    color: #fff;
+    background: #c52a2a;
+    text-decoration: none;
+    border: 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.egf-tab:hover,
+.egf-tabs button.egf-tab:hover {
+    background: #d23333;
+}
+
+.egf-tab.is-active,
+.egf-tabs button.egf-tab.is-active {
+    background: #b82626;
+}
+
+/* GitHub icon sized like a tab */
+.egf-icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    text-decoration: none;
+    color: #111;
+}
+
+.egf-icon-link svg {
+    width: 18px;
+    height: 18px;
+    pointer-events: none;
+}
