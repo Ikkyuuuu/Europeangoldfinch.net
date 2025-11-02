@@ -8,7 +8,7 @@ export default function NewPost() {
     const [form, setForm] = useState({ topic: "", detail: "" });
     const [err, setErr] = useState("");
     const [submitting, setSubmitting] = useState(false);
-    const canSend = form.detail.trim().length > 0;
+    const canSend = form.detail.trim().length > 0;P
 
     const submit = async (e) => {
         e.preventDefault();
