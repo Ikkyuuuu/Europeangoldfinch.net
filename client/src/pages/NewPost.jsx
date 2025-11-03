@@ -8,14 +8,15 @@ export default function NewPost() {
     const [form, setForm] = useState({ topic: "", detail: "" });
     const [err, setErr] = useState("");
     const [submitting, setSubmitting] = useState(false);
-    const canSend = form.detail.trim().length > 0;P
+    const canSend = form.detail.trim().length > 0;
 
     const submit = async (e) => {
         e.preventDefault();
         setErr("");
         setSubmitting(true);
+
         try {
-            await createPost(form);               // your API call
+            await createPost(form); // your API call
 
             // Option A: hard refresh to Home (recommended to see the new post immediately)
             window.location.assign("/");
@@ -41,7 +42,9 @@ export default function NewPost() {
                         className="post-input post-input--topic"
                         placeholder="Topic"
                         value={form.topic}
-                        onChange={(e) => setForm((f) => ({ ...f, topic: e.target.value }))}
+                        onChange={(e) =>
+                            setForm((f) => ({ ...f, topic: e.target.value }))
+                        }
                     />
                 </div>
 
@@ -52,7 +55,9 @@ export default function NewPost() {
                         rows={10}
                         placeholder="Message"
                         value={form.detail}
-                        onChange={(e) => setForm((f) => ({ ...f, detail: e.target.value }))}
+                        onChange={(e) =>
+                            setForm((f) => ({ ...f, detail: e.target.value }))
+                        }
                     />
                 </div>
 

@@ -55,7 +55,7 @@ export default function PostsList() {
 
                 {/* 👇 this is the part you were missing */}
                 {loading ? (
-                    <div className="loading">Loading...</div>
+                    <div className="loading">Waking up server... or Loading ...</div>
                 ) : error ? (
                     <div className="loading">{error}</div>
                 ) : (
